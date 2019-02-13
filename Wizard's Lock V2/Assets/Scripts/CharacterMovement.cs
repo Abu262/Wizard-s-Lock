@@ -4,42 +4,60 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
-    private bool moving;
+    private bool moving = false;
     private Vector3 movedTo;
     public float speed;
-    //public GameObject chara;
-    
+    private GameObject hitten;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //get the player moving left right, up or down
-        if (Input.GetMouseButtonDown(0)) {
-            movedTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            movedTo.z = transform.position.z;
-            if( !moving ){
-                moving = true;
+        if (Input.GetMouseButtonDown(0)){
+            CheckClick();
+            moving = true;
+        }
+
+        if (moving){
+            MoveChara();
+        }
+
+        if ( movedTo == this.transform.position){
+            moving = false;
+        }
+    }
+
+    void MoveChara()
+    {
+        //if they are moving, transform into where they wanted to move
+        if (hitten){
+            if (hitten.name == "Background"){
+                transform.position = Vector3.MoveTowards(transform.position, movedTo, speed * Time.deltaTime);
             }
-            //Instantiate( chara, movedTo, Quaternion.identity );
         }
+    }
 
-        if ( moving ){
-            transform.position = Vector3.MoveTowards(transform.position, movedTo, speed * Time.deltaTime);
+    void CheckClick()
+    {
+        //if the mouse button is pressed, find out where they want to move and set moving to true
+        movedTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        movedTo.z = transform.position.z;
+        hitten = OutOfBound();
+    }
+
+    GameObject OutOfBound()
+    {
+        Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+        RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
+
+        if (hit){
+            return hit.transform.gameObject;
         }
-        //float horizontal = Input.GetButtonDown("Mouse X");
-        //float vertical = Input.GetAxis("Vertical");
-
-        //storing movement in a 2d vector
-        //Vector2 moving = new Vector2(horizontal, vertical);
-
-        //give the rigidbody movement * how fast we want them to move
-        //rigidBody.AddForce(moving * speed);
+        else return null;
     }
 }
