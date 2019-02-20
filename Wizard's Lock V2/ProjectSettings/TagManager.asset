@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
+  - ChessBoard
+  - White
+  - Black
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Chess
+  - Character
+  - ChessPiece
   - 
   - 
   - 
@@ -47,4 +50,10 @@ TagManager:
     locked: 1
   - name: Character
     uniqueID: 1082300007
+    locked: 0
+  - name: Chess
+    uniqueID: 2200944813
+    locked: 0
+  - name: ChessPiece
+    uniqueID: 3832754783
     locked: 0

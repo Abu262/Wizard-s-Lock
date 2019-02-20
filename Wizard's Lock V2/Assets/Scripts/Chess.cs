@@ -6,6 +6,10 @@ public class Chess : MonoBehaviour
 {
     [SerializeField] protected bool isPicked = false;
     [SerializeField] GameObject selectedObject = null;
+    [SerializeField] public bool won = false;
+    [SerializeField] GameObject winningPiece;
+    private Vector3 winningPosition = new Vector3(-2.9f, 4.8f, 0);
+    private Vector3 originalPosition = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +23,10 @@ public class Chess : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && selectedObject == null)
             selectedObject = ClickSelect();
 
-        if (Input.GetMouseButtonDown(0) && selectedObject != null)
+        else if (Input.GetMouseButtonDown(0) && selectedObject != null)
             DropObject();
 
         MoveObject();
-
-        CheckBoard();
 
     }
 
@@ -36,8 +38,18 @@ public class Chess : MonoBehaviour
         
         if (hit)
         {
+            Debug.Log("Found Object:");
             Debug.Log(hit.transform.name);
-            return hit.transform.gameObject;
+            if (hit.transform.gameObject.CompareTag("Black"))
+            {
+                Debug.Log("Found Black Piece:");
+                Debug.Log(hit.transform.name);
+                originalPosition = hit.transform.gameObject.transform.position;
+                return hit.transform.gameObject;
+            }
+
+            else
+                return null;
         }
         else return null;
     }
@@ -59,14 +71,35 @@ public class Chess : MonoBehaviour
         if (hit)
         {
             selectedObject.transform.position = hit.transform.position;
-            selectedObject = null;
+            if (CheckWin())
+            {
+                Debug.Log("You Won");
+                selectedObject.transform.position = winningPosition;
+                selectedObject = null;
+            }
+            else
+            {
+                Debug.Log("nope");
+                selectedObject.transform.position = originalPosition;
+                selectedObject = null;
+            }
+
+            
+
         }
 
         
     }
 
-    void CheckBoard()
+    bool CheckWin()
     {
-        
+        if (winningPiece.transform.position.x >= winningPosition.x - .6
+            && winningPiece.transform.position.x <= winningPosition.x + .6
+            && winningPiece.transform.position.y >= winningPosition.y - .6
+            && winningPiece.transform.position.y <= winningPosition.y + .6)
+        {
+            return true;
+        }
+        return false;
     }
 }
