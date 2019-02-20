@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 159484253}
   m_Layer: 12
   m_Name: WizardKnight
-  m_TagString: Black
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 961374356}
   m_Layer: 12
   m_Name: WhitePieces
-  m_TagString: White
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 1210950954}
   m_Layer: 12
   m_Name: BlackPieces
-  m_TagString: Black
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 1231142753}
   m_Layer: 12
   m_Name: WizardKingW
-  m_TagString: White
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 1595705737}
   m_Layer: 10
   m_Name: ChessBoard
-  m_TagString: ChessBoard
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
