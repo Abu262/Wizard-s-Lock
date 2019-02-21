@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Background
   - Item Database
+  - Black
+  - White
+  - ChessBoard
   layers:
   - Default
   - TransparentFX
@@ -51,6 +54,9 @@ TagManager:
     locked: 0
   - name: Chess
     uniqueID: 2200944813
+    locked: 0
+  - name: ChessPieceWhite
+    uniqueID: 1711183953
     locked: 0
   - name: ChessPiece
     uniqueID: 3832754783

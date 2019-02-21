@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Chess : MonoBehaviour
 {
-    [SerializeField] protected bool isPicked = false;
     [SerializeField] GameObject selectedObject = null;
     [SerializeField] public bool won = false;
-    [SerializeField] GameObject winningPiece;
+    [SerializeField] GameObject winningPiece = null;
+    [SerializeField] GameObject chessBoard = null;
     private Vector3 winningPosition = new Vector3(-2.9f, 4.8f, 0);
     private Vector3 originalPosition = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
     {
-
+        chessBoard = GameObject.FindWithTag("ChessBoard");
+        chessBoard.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
@@ -38,13 +39,10 @@ public class Chess : MonoBehaviour
         
         if (hit)
         {
-            Debug.Log("Found Object:");
-            Debug.Log(hit.transform.name);
             if (hit.transform.gameObject.CompareTag("Black"))
             {
-                Debug.Log("Found Black Piece:");
-                Debug.Log(hit.transform.name);
                 originalPosition = hit.transform.gameObject.transform.position;
+                chessBoard.GetComponent<BoxCollider2D>().enabled = true;
                 return hit.transform.gameObject;
             }
 
@@ -56,7 +54,7 @@ public class Chess : MonoBehaviour
 
     void MoveObject()
     {
-        if (selectedObject != null && !selectedObject.CompareTag("ChessBoard") && !selectedObject.CompareTag("White"))
+        if (selectedObject != null && selectedObject.CompareTag("Black"))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             selectedObject.transform.position = mousePos;
@@ -76,16 +74,14 @@ public class Chess : MonoBehaviour
                 Debug.Log("You Won");
                 selectedObject.transform.position = winningPosition;
                 selectedObject = null;
+                chessBoard.SetActive(false);
             }
             else
             {
-                Debug.Log("nope");
                 selectedObject.transform.position = originalPosition;
+                chessBoard.GetComponent<BoxCollider2D>().enabled = false;
                 selectedObject = null;
             }
-
-            
-
         }
 
         
