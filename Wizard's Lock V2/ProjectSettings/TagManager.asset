@@ -49,9 +49,6 @@ TagManager:
   - name: Background
     uniqueID: 545260453
     locked: 1
-  - name: Character
-    uniqueID: 1082300007
-    locked: 0
   - name: Chess
     uniqueID: 2200944813
     locked: 0
@@ -60,4 +57,13 @@ TagManager:
     locked: 0
   - name: ChessPiece
     uniqueID: 3832754783
+    locked: 0
+  - name: ItemBack
+    uniqueID: 133247293
+    locked: 0
+  - name: ItemFront
+    uniqueID: 3727855033
+    locked: 0
+  - name: Character
+    uniqueID: 1082300007
     locked: 0
