@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance = null;
+
     public int slotsY;
     public GUISkin skin;
     public static List<Item> inventory = new List<Item>();
@@ -18,9 +19,19 @@ public class Inventory : MonoBehaviour
     private Item draggedItem;
     private int prevIndex;
 
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
-        for(int i = 0; i < slotsY; i++)
+        for (int i = 0; i < slotsY; i++)
         {
             slots.Add(new Item());
             inventory.Add(new Item());

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ItemObject : Inventory
 {
+    void Awake()
+    {
+
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(1))

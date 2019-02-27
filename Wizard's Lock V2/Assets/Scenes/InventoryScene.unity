@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 71554036}
   - component: {fileID: 71554035}
   - component: {fileID: 71554037}
-  - component: {fileID: 71554038}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -204,27 +203,6 @@ MonoBehaviour:
   skin: {fileID: 0}
   slots: []
   database: {fileID: 0}
---- !u!50 &71554038
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71554033}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &259370896
 GameObject:
   m_ObjectHideFlags: 0
