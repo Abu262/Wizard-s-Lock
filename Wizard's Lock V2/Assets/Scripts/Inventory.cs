@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Inventory : MonoBehaviour
 {
     public int slotsY;
     public GUISkin skin;
-    public List<Item> inventory = new List<Item>();
+    public static List<Item> inventory = new List<Item>();
     public List<Item> slots = new List<Item>();
     private bool showInventory = true;
-    private ItemDatabase database;
+    public ItemDatabase database;
     private bool showTooltip;
     private string tooltip;
 
@@ -28,13 +29,6 @@ public class Inventory : MonoBehaviour
         AddItem(0);
         AddItem(1);
         AddItem(7);
-        AddItem(3);
-        AddItem(6);
-        AddItem(8);
-        AddItem(2);
-        AddItem(5);
-        AddItem(3);
-        //RemoveItem(5);
     }
 
     void Update()
@@ -91,6 +85,10 @@ public class Inventory : MonoBehaviour
                         draggingItem = false;
                         draggedItem = null;
                     }
+                    if (e.isMouse && e.type == EventType.MouseDown && e.button == 1)
+                    {
+                        useItem(slots[i], i, true);
+                    }
                 }
             }
             else
@@ -132,7 +130,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void AddItem(int id)
+    virtual public void AddItem(int id)
     {
         for (int i = 0; i < inventory.Count; i++)
         {
@@ -143,10 +141,19 @@ public class Inventory : MonoBehaviour
                     if(database.items[j].itemID == id)
                     {
                         inventory[i] = database.items[j];
+                        Debug.Log("Added Item " + database.items[id].itemName);
                     }
                 }
                 break;
             }
+        }
+    }
+
+    private void useItem(Item item, int slot, bool deleteItem)
+    {
+        if (deleteItem)
+        {
+            inventory[slot] = new Item();
         }
     }
 
