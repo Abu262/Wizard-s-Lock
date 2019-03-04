@@ -8,14 +8,12 @@ public class ItemDatabase : MonoBehaviour
 
     void Awake()
     {
-        items.Add(new Item("Book", 0, "A bad book sprite"));
-        items.Add(new Item("Blue Potion", 1, "A bad blue potion"));
-        items.Add(new Item("Green Potion", 2, "A bad green potion"));
-        items.Add(new Item("Red Potion", 3, "A bad red potion"));
-        items.Add(new Item("Glasses", 4, "A bad pair of glasses"));
-        items.Add(new Item("Hat", 5, "A bad hat"));
-        items.Add(new Item("Lightning", 6, "A bad drawing of lighting"));
-        items.Add(new Item("Thunder", 7, "A bad drawing of thunder???"));
-        items.Add(new Item("Key", 8, "A bad key"));
+        items.Add(new Item("Candle", 0, "Candle"));
+        items.Add(new Item("Diary", 1, "Diary"));
+        items.Add(new Item("Fire Ember", 2, "Fire Ember"));
+        items.Add(new Item("Glove", 3, "Glove"));
+        items.Add(new Item("Lightning in a Jar", 4, "Lightning in a Jar"));
+        items.Add(new Item("Ring", 5, "Ring"));
+        items.Add(new Item("Thor's Toothpick", 6, "Thor's Toothpick"));
     }
 }
