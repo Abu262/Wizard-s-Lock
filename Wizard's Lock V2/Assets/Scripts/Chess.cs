@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Chess : MonoBehaviour
 {
-    [SerializeField] protected bool isPicked = false;
     [SerializeField] GameObject selectedObject = null;
+    [SerializeField] public bool won = false;
+    [SerializeField] GameObject winningPiece = null;
+    [SerializeField] GameObject chessBoard = null;
+    private Vector3 winningPosition = new Vector3(-2.9f, 4.8f, 0);
+    private Vector3 originalPosition = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
     {
-
+        chessBoard = GameObject.FindWithTag("ChessBoard");
+        chessBoard.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
@@ -19,12 +24,10 @@ public class Chess : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && selectedObject == null)
             selectedObject = ClickSelect();
 
-        if (Input.GetMouseButtonDown(0) && selectedObject != null)
+        else if (Input.GetMouseButtonDown(0) && selectedObject != null)
             DropObject();
 
         MoveObject();
-
-        CheckBoard();
 
     }
 
@@ -36,15 +39,22 @@ public class Chess : MonoBehaviour
         
         if (hit)
         {
-            Debug.Log(hit.transform.name);
-            return hit.transform.gameObject;
+            if (hit.transform.gameObject.CompareTag("Black"))
+            {
+                originalPosition = hit.transform.gameObject.transform.position;
+                chessBoard.GetComponent<BoxCollider2D>().enabled = true;
+                return hit.transform.gameObject;
+            }
+
+            else
+                return null;
         }
         else return null;
     }
 
     void MoveObject()
     {
-        if (selectedObject != null && !selectedObject.CompareTag("ChessBoard") && !selectedObject.CompareTag("White"))
+        if (selectedObject != null && selectedObject.CompareTag("Black"))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             selectedObject.transform.position = mousePos;
@@ -59,14 +69,33 @@ public class Chess : MonoBehaviour
         if (hit)
         {
             selectedObject.transform.position = hit.transform.position;
-            selectedObject = null;
+            if (CheckWin())
+            {
+                Debug.Log("You Won");
+                selectedObject.transform.position = winningPosition;
+                selectedObject = null;
+                chessBoard.SetActive(false);
+            }
+            else
+            {
+                selectedObject.transform.position = originalPosition;
+                chessBoard.GetComponent<BoxCollider2D>().enabled = false;
+                selectedObject = null;
+            }
         }
 
         
     }
 
-    void CheckBoard()
+    bool CheckWin()
     {
-        
+        if (winningPiece.transform.position.x >= winningPosition.x - .6
+            && winningPiece.transform.position.x <= winningPosition.x + .6
+            && winningPiece.transform.position.y >= winningPosition.y - .6
+            && winningPiece.transform.position.y <= winningPosition.y + .6)
+        {
+            return true;
+        }
+        return false;
     }
 }
