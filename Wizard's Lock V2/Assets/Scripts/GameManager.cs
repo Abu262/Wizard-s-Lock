@@ -1,43 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] protected bool isPicked = false;
-    [SerializeField] GameObject selectedObject = null;
+    public static GameManager instance = null;
+
+
+    TextMeshProUGUI timerText;
+    float timeLeft = 1200f;
+    float timeMin = 0f;
+    float timeSec = 0f;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        timerText = this.GetComponent<TextMeshProUGUI>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        selectedObject = ClickSelect();
-
-        if (selectedObject != null)
-        {
-
-        }
-
-
+        UpdateTimer();
+        
     }
 
-    GameObject ClickSelect()
+    void UpdateTimer()
     {
-        //Converting Mouse Pos to 2D (vector2) World Pos
-        Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-        RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
-
-        if (hit)
-        {
-            Debug.Log(hit.transform.name);
-            return hit.transform.gameObject;
-        }
-        else return null;
+        timeLeft -= Time.deltaTime;
+        timeMin = timeLeft / 60;
+        timeSec = timeLeft % 60;
+        timerText.text = string.Format("{0}:{1}", (int)timeMin, (int)timeSec);
     }
 }
