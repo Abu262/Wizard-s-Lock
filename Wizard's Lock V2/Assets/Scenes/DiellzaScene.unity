@@ -345,7 +345,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1082300007
-  m_SortingLayer: 2
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f149d8a636912f044896fcf6deb42fd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c4c260e3b13204da1a9941ae1ae8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
 --- !u!1 &751848530
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 790026407}
   - component: {fileID: 790026406}
   - component: {fileID: 790026405}
+  - component: {fileID: 790026408}
   m_Layer: 5
   m_Name: Look At
   m_TagString: Untagged
@@ -581,7 +582,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 790026406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1000843407}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Teleporter
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &790026406
@@ -621,6 +633,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790026403}
   m_CullTransparentMesh: 0
+--- !u!114 &790026408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790026403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb551137c7a157c43839033f3ae0317a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &852949094
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,9 +753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23d333ca1c4e144a1d68989fdd71df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addtoInventory: {fileID: 751848530}
-  interactWithItem: {fileID: 1296325377}
-  lookAtItem: {fileID: 790026403}
+  addtoInventory: {fileID: 751848532}
+  interactWithItem: {fileID: 1296325379}
+  lookAtItem: {fileID: 790026405}
 --- !u!4 &1000843409
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,7 +1130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3, y: 0.6}
+    oldSize: {x: 1.4444444, y: 0.6666667}
     newSize: {x: 1.3, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1286,7 +1310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2008962763}
   - component: {fileID: 2008962762}
-  - component: {fileID: 2008962761}
   - component: {fileID: 2008962764}
   m_Layer: 0
   m_Name: candle
@@ -1295,21 +1318,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2008962761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008962760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e23d333ca1c4e144a1d68989fdd71df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addtoInventory: {fileID: 751848530}
-  interactWithItem: {fileID: 1296325377}
-  lookAtItem: {fileID: 790026403}
 --- !u!212 &2008962762
 SpriteRenderer:
   m_ObjectHideFlags: 0
