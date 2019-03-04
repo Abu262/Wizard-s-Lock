@@ -6,10 +6,23 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
+
     TextMeshProUGUI timerText;
     float timeLeft = 1200f;
     float timeMin = 0f;
     float timeSec = 0f;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
