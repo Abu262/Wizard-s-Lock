@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
 
-    TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI timerText = null;
     float timeLeft = 1200f;
     float timeMin = 0f;
     float timeSec = 0f;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerText = this.GetComponent<TextMeshProUGUI>();
+        
 
     }
 
