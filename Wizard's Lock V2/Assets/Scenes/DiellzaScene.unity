@@ -753,9 +753,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e23d333ca1c4e144a1d68989fdd71df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addtoInventory: {fileID: 751848532}
-  interactWithItem: {fileID: 1296325379}
-  lookAtItem: {fileID: 790026405}
+  addtoInventory: {fileID: 751848530}
+  interactWithItem: {fileID: 1296325377}
+  lookAtItem: {fileID: 790026403}
+  pos: {x: 0, y: 0, z: 0}
+  hitCollider: {fileID: 0}
+  colliderPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1000843409
 Transform:
   m_ObjectHideFlags: 0
