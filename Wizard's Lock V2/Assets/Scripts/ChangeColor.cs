@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ChangeColor : MonoBehaviour
+public class ChangeColor : Inventory
 {
     public GameObject Left, Middle, Right;
     Color[] colors = { Color.red, Color.blue, Color.yellow, Color.green, Color.cyan, Color.magenta, Color.grey };
@@ -21,6 +22,12 @@ public class ChangeColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Left.GetComponent<Renderer>().material.color == Color.yellow && Middle.GetComponent<Renderer>().material.color == Color.yellow && Right.GetComponent<Renderer>().material.color == Color.yellow)
+        {
+            AddItem(4);
+            Debug.Log("Potion Complete!");
+            SceneManager.LoadScene(1);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
