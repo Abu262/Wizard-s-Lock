@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AriScene.unity
     guid: ba7a518407f44bb4f957dbd82910f11e
+  - enabled: 1
+    path: Assets/Scenes/Lose Screen.unity
+    guid: 9575a484596ce4a4daeb88e228cc2a2f
   m_configObjects: {}

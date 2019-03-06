@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
+        if ( timeLeft == 0)
+        {
+            SceneManager.LoadScene("End Screen");
+        }
         
     }
 
