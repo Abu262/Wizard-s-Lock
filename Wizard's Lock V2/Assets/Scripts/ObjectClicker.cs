@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ObjectClicker : MonoBehaviour
 {
     public GameObject addtoInventory, interactWithItem, lookAtItem;
+    public static GameObject selectedItem;
     public Vector3 pos;
     public Collider2D hitCollider;
     public Vector3 colliderPosition;
@@ -13,6 +14,7 @@ public class ObjectClicker : MonoBehaviour
     void Start()
     {
         SetButtons(false);
+        selectedItem = null;
     }
 
     // Update is called once per frame
@@ -32,6 +34,15 @@ public class ObjectClicker : MonoBehaviour
                 interactWithItem.transform.position = new Vector3(pos.x, (pos.y + 70), pos.z);
                 lookAtItem.transform.position = new Vector3(pos.x, (pos.y + 40), pos.z);
                 SetButtons(true);
+                if(hitCollider.gameObject.name == "Ember")
+                {
+                    Debug.Log("Ember Selected");
+                    selectedItem = GameObject.Find("Ember");
+                }
+                if(hitCollider.gameObject.name == "Add to Inventory")
+                {
+                    Debug.Log("Here");
+                }
             }
 
             else
