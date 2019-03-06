@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -35,6 +36,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
+        if ( timeLeft <= 0)
+        {
+            SceneManager.LoadScene("Lose Screen");
+            timeLeft = 1200f;
+        }
         
     }
 
@@ -43,6 +49,14 @@ public class GameManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         timeMin = timeLeft / 60;
         timeSec = timeLeft % 60;
-        timerText.text = string.Format("{0}:{1}", (int)timeMin, (int)timeSec);
+        if (timeSec <= 10)
+        {
+            timerText.text = string.Format("{0}:0{1}", (int)timeMin, (int)timeSec);
+        }
+        else
+        {
+            timerText.text = string.Format("{0}:{1}", (int)timeMin, (int)timeSec);
+        }
+        
     }
 }
