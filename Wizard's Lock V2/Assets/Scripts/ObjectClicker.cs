@@ -79,9 +79,9 @@ public class ObjectClicker : MonoBehaviour
             if (hitCollider != null)
             {
                 colliderPosition = hitCollider.transform.position;
-                addtoInventory.transform.position = new Vector3(pos.x, (pos.y + 100),pos.z);
-                interactWithItem.transform.position = new Vector3(pos.x, (pos.y + 70), pos.z);
-                lookAtItem.transform.position = new Vector3(pos.x, (pos.y + 40), pos.z);
+                addtoInventory.transform.position = new Vector3(pos.x, (pos.y),pos.z);
+                interactWithItem.transform.position = new Vector3(pos.x, (pos.y - 30), pos.z);
+                lookAtItem.transform.position = new Vector3(pos.x, (pos.y - 60), pos.z);
                 SetButtons(true);
                 if(hitCollider.gameObject.name == "Ember")
                 {
