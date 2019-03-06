@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ChessTest.unity
     guid: 4e432b91fc9a5fe4b91aecee2899c971
   - enabled: 1
-    path: Assets/Scenes/JarenScene.unity
+    path: Assets/Scenes/PotionsScene.unity
     guid: 23c9a4a06a5355c4195e89a098480328
   m_configObjects: {}
