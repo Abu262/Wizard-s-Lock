@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Screen.unity
     guid: df1b838d741c08e4aa244c0205168c73
   - enabled: 1
-    path: Assets/Scenes/AriScene.unity
-    guid: ba7a518407f44bb4f957dbd82910f11e
+    path: Assets/Scenes/Basement.unity
+    guid: 047ad3d2e0354a44dbde96c16866c94e
+  - enabled: 1
+    path: Assets/Scenes/Living Room.unity
+    guid: d810abcdc0191f84db39bc22baba176c
+  - enabled: 1
+    path: Assets/Scenes/Bedroom.unity
+    guid: 0db907cc5d3e65146a4661f4eac0a477
+  - enabled: 1
+    path: Assets/Scenes/ChessTest.unity
+    guid: 4e432b91fc9a5fe4b91aecee2899c971
+  - enabled: 1
+    path: Assets/Scenes/JarenScene.unity
+    guid: 23c9a4a06a5355c4195e89a098480328
   m_configObjects: {}

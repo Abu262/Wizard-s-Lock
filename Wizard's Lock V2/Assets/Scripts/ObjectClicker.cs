@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ObjectClicker : MonoBehaviour
 {
@@ -103,14 +104,14 @@ public class ObjectClicker : MonoBehaviour
                 }
                 if (hitCollider.gameObject.name == "Teleporterup")
                 {
-
+                    
                     selectedItem = GameObject.Find("TeleporterUp");
                     objid = 9; 
                     Debug.Log("9");
                 }
                 if (hitCollider.gameObject.name == "TeleporterDown")
                 {
-
+                    
                     selectedItem = GameObject.Find("TeleporterDown");
                     objid = 10; 
                 }
@@ -288,6 +289,14 @@ public class ObjectClicker : MonoBehaviour
         {
             Desc.text = "Oh sure, I can definitely open this door. That giant lock is just for show";
             objid = -1;
+        }
+        if (objid == 10)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+        if (objid == 9)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     //////////////////////////////////
