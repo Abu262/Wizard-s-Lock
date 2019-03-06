@@ -482,9 +482,13 @@ MonoBehaviour:
   addtoInventory: {fileID: 1976812774}
   interactWithItem: {fileID: 549024544}
   lookAtItem: {fileID: 1132434548}
+  adder: {fileID: 1976812776}
+  interacter: {fileID: 549024546}
+  looker: {fileID: 1132434551}
   pos: {x: 0, y: 0, z: 0}
   hitCollider: {fileID: 0}
   colliderPosition: {x: 0, y: 0, z: 0}
+  invscript: {fileID: 200139970}
 --- !u!4 &426663492
 Transform:
   m_ObjectHideFlags: 0
