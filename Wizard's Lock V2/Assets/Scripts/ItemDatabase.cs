@@ -10,7 +10,7 @@ public class ItemDatabase : MonoBehaviour
     {
         items.Add(new Item("Candle", 0, "Candle"));
         items.Add(new Item("Diary", 1, "Diary"));
-        items.Add(new Item("Fire Ember", 2, "Fire Ember"));
+        items.Add(new Item("Fire Ember", 2, "This is the ember Mr. Fireplace gave me, \nI can feel the heat, \nbut it doesn’t burn my hand."));
         items.Add(new Item("Glove", 3, "Glove"));
         items.Add(new Item("Lightning in a Jar", 4, "Lightning in a Jar"));
         items.Add(new Item("Ring", 5, "Ring"));

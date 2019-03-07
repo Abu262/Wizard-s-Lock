@@ -43,7 +43,7 @@ public class ObjectClicker : MonoBehaviour
     void Update()
     {
         //some safe bullshit
-        if (Safe.image.enabled == true)
+        if (GameObject.Find("wallsafe") != null && Safe.image.enabled == true)
         {
             if (Input.GetKeyUp("return"))
             {
@@ -89,6 +89,12 @@ public class ObjectClicker : MonoBehaviour
                     Debug.Log("Ember Selected");
                     selectedItem = GameObject.Find("Ember");
                     objid = 2; //get the ember's ID for adding to inventory
+                }
+                if (hitCollider.gameObject.name == "Diary")
+                {
+
+                    selectedItem = GameObject.Find("Diary");
+                    objid = 1;
                 }
                 if (hitCollider.gameObject.name == "Candleplaced")
                 {
@@ -139,6 +145,62 @@ public class ObjectClicker : MonoBehaviour
                     selectedItem = GameObject.Find("Door");
                     objid = 14; 
                 }
+
+                if (hitCollider.gameObject.name == "Pedestal")
+                {
+
+                    selectedItem = GameObject.Find("Pedestal");
+                    objid = 15;
+                }
+
+                if (hitCollider.gameObject.name == "Chess")
+                {
+
+                    selectedItem = GameObject.Find("Chess");
+                    objid = 16;
+                }
+
+                if (hitCollider.gameObject.name == "UpstairsTeleporter")
+                {
+
+                    selectedItem = GameObject.Find("UpstairsTeleporter");
+                    objid = 17;
+                }
+
+                if (hitCollider.gameObject.name == "Bed")
+                {
+
+                    selectedItem = GameObject.Find("Bed");
+                    objid = 18;
+                }
+
+                if (hitCollider.gameObject.name == "Drawer")
+                {
+
+                    selectedItem = GameObject.Find("Drawer");
+                    objid = 19;
+                }
+                if (hitCollider.gameObject.name == "Alchemy")
+                {
+
+                    selectedItem = GameObject.Find("Alchemy");
+                    objid = 20;
+                }
+
+                if (hitCollider.gameObject.name == "DownstairsTeleporter")
+                {
+
+                    selectedItem = GameObject.Find("DownstairsTeleporter");
+                    objid = 21;
+                }
+
+                if (hitCollider.gameObject.name == "Fireplace")
+                {
+
+                    selectedItem = GameObject.Find("Fireplace");
+                    objid = 22;
+                }
+
                 //didnt need this
                 //if (hitCollider.gameObject.name == "Add to Inventory")
                 //{
@@ -257,6 +319,46 @@ public class ObjectClicker : MonoBehaviour
         if (objid == 14)
         {
             Desc.text = "That comically large door is the only way out";
+        }
+        //pedestal
+        if (objid == 15)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //chess
+        if (objid == 16)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //upstairstele
+        if (objid == 17)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //bed
+        if (objid == 18)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //drawer
+        if (objid == 19)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //alchemy
+        if (objid == 20)
+        {
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //downstairstele
+        if (objid == 21)
+        { 
+            //Desc.text = "That comically large door is the only way out";
+        }
+        //fireplace
+        if (objid == 22)
+        {
+            //Desc.text = "That comically large door is the only way out";
         }
     }
     //for interacting with objects
