@@ -16,6 +16,7 @@ public class ObjectClicker : MonoBehaviour
     public InputField Safe;
     // my stuff
     ////////
+    private Text kelvintext;
     public Inventory invscript;    // you didnt have your inventory script called
     int objid = -1;   // you had everything in the database set as id numbers so i rolled with that
     bool safeenabled = true;
@@ -73,17 +74,31 @@ public class ObjectClicker : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Safe.image.enabled = false; //get rid of the input field
+            if (Safe != null)
+            {
+                Safe.image.enabled = false; //get rid of the input field
+            }
             pos = Input.mousePosition;
             hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
 
-            if (hitCollider != null)
+            if (hitCollider != null )
             {
+                if (kelvintext != null)
+                {
+                    kelvintext.text = "";
+                }
                 colliderPosition = hitCollider.transform.position;
                 addtoInventory.transform.position = new Vector3(pos.x, (pos.y),pos.z);
                 interactWithItem.transform.position = new Vector3(pos.x, (pos.y - 30), pos.z);
                 lookAtItem.transform.position = new Vector3(pos.x, (pos.y - 60), pos.z);
                 SetButtons(true);
+                if (hitCollider.gameObject.name == "Basement" || hitCollider.gameObject.name == "LivingRoom" || hitCollider.gameObject.name == "Bedroom")
+                {
+                    //addtoInventory.transform.position = new Vector3(pos.x, (pos.y), pos.z);
+                    //interactWithItem.transform.position = new Vector3(pos.x, (pos.y - 30), pos.z);
+                    //lookAtItem.transform.position = new Vector3(pos.x, (pos.y - 60), pos.z);
+                    SetButtons(false);
+                }
                 if(hitCollider.gameObject.name == "Ember")
                 {
                     Debug.Log("Ember Selected");
@@ -278,6 +293,11 @@ public class ObjectClicker : MonoBehaviour
             objid = -1;
 
         }
+        if (objid == 22)
+        {
+            kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
+            kelvintext.text = "\n\n\n\n\n\n\n        AY! Hand's off kid!";            objid = -1;
+        }
 
     }
     //for looking at objects
@@ -285,8 +305,12 @@ public class ObjectClicker : MonoBehaviour
     {
         if (objid == 2)
         {
-            Desc.text = "It's a piece of ember from Mr. Fireplace";
+            Desc.text = "It's a piece of ember from Kelvin";
 
+        }
+        if (objid == 1)
+        {
+            Desc.text = "the wizard's diary, he dots his I's with hearts.";
         }
         if (objid == 7)
         {
@@ -323,42 +347,42 @@ public class ObjectClicker : MonoBehaviour
         //pedestal
         if (objid == 15)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "'Thor's Toothpick'... I think the wizard won this in a chess match";
         }
         //chess
         if (objid == 16)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "A recreation of the 1998's chess match: Thorin vs. Ittai, right before Thorin checkmated Ittai, I beleive Thorin played black";
         }
         //upstairstele
         if (objid == 17)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "This leads to the living room.";
         }
         //bed
         if (objid == 18)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "A cozy bed for a not-so-cozy wizard.";
         }
         //drawer
         if (objid == 19)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "That's where the wizard keeps his undies.";
         }
         //alchemy
         if (objid == 20)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "The wziard's alchemy table, what he brews up here would shock you.";
         }
         //downstairstele
         if (objid == 21)
         { 
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "This leads to the living room.";
         }
         //fireplace
         if (objid == 22)
         {
-            //Desc.text = "That comically large door is the only way out";
+            Desc.text = "That's Kelvin, the Wizard's fireplace. He can talk.";
         }
     }
     //for interacting with objects
@@ -394,11 +418,19 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 10)
         {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            objid = -1;
         }
         if (objid == 9)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            objid = -1;
+        }
+       if (objid == 22)
+        {
+            kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
+            kelvintext.text = "Oh, it’s the wizard’s new test subject. You probably wanna escape, huh? \n\nListen, that wizard refused me my raise AND moved me to the basement. For all I care, he can eat a bag of dicks. \n\nSo tell you what. Get me his staff so I can burn it, and I’ll help you out.";            objid = -1;
         }
     }
     //////////////////////////////////

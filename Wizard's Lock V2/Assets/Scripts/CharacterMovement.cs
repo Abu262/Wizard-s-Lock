@@ -52,7 +52,7 @@ public class CharacterMovement : MonoBehaviour
         movedTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         movedTo.z = transform.position.z;
         hitten = OutOfBound();
-        Debug.Log(hitten.name);
+         Debug.Log(hitten.name);
     }
 
     GameObject OutOfBound()

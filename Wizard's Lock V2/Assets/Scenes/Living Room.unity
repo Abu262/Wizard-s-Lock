@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1156,8 +1156,9 @@ GameObject:
   - component: {fileID: 766941974}
   - component: {fileID: 766941973}
   - component: {fileID: 766941975}
+  - component: {fileID: 766941976}
   m_Layer: 0
-  m_Name: MainRoom
+  m_Name: LivingRoom
   m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1197,8 +1198,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 545260453
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b5d74c9d4ab4c34c9a1ebc93e5e75e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1232,7 +1233,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766941972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1251,6 +1252,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.6267424, y: 1.2977691}
   m_EdgeRadius: 0
+--- !u!60 &766941976
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766941972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 4.6875}
+    newSize: {x: 8, y: 4.6875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.8282849, y: -0.4926021}
+      - {x: -2.4825697, y: -0.48307633}
+      - {x: -3.0588174, y: -0.48167077}
+      - {x: -3.4643707, y: -0.49444115}
+      - {x: -3.638127, y: -0.5880824}
+      - {x: -3.9794168, y: -0.8499006}
+      - {x: -4.010744, y: -1.8137231}
+      - {x: -3.3526535, y: -1.7841891}
+      - {x: -2.5231407, y: -1.7456677}
+      - {x: -2.4280033, y: -1.7592672}
+      - {x: -2.3302562, y: -1.6635966}
+      - {x: -2.2812982, y: -1.3500278}
+      - {x: -2.9874444, y: -1.338559}
+      - {x: -1.9135973, y: -1.2630063}
+      - {x: -1.7130558, y: -0.9879891}
+      - {x: -1.9363503, y: -0.69369334}
+      - {x: -2.669615, y: -0.6265107}
+      - {x: -3.0641677, y: -0.78705037}
+      - {x: -3.0532827, y: -0.47544777}
+      - {x: -3.1838453, y: -0.3571446}
+      - {x: -3.2513084, y: -1.0170519}
+      - {x: -2.9201298, y: -1.350928}
+      - {x: -2.9156318, y: -1.7483895}
+      - {x: -2.670929, y: -1.6940458}
+      - {x: -2.305523, y: -1.7504135}
+      - {x: -2.1775715, y: -1.754463}
+      - {x: 2.6217504, y: -1.76079}
+      - {x: 2.6390939, y: -1.3623879}
+      - {x: 3.0812721, y: -1.2735702}
+      - {x: 3.28081, y: -1.0027659}
+      - {x: 3.1979058, y: -0.37762225}
+      - {x: 3.1006818, y: -0.46776786}
+      - {x: 3.0822735, y: -0.79116964}
+      - {x: 2.9893978, y: -0.69804895}
+      - {x: 2.21872, y: -0.62951124}
+      - {x: 1.9564217, y: -0.754127}
+      - {x: 1.7995226, y: -0.38998923}
+      - {x: 1.7743831, y: -0.85162055}
+      - {x: 1.7903852, y: -1.2554401}
+      - {x: 2.2619376, y: -1.3417628}
+      - {x: 2.6466622, y: -1.370279}
+      - {x: 2.6268952, y: -1.7212303}
+      - {x: 3.9701264, y: -1.7486246}
+      - {x: 3.9660666, y: -0.8803904}
+      - {x: 3.483656, y: -0.49614573}
 --- !u!1 &817108580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,8 +2646,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -567112263
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 74f4d3567e536864bb699b878ab79b8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
