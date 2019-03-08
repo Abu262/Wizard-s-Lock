@@ -436,6 +436,16 @@ public class ObjectClicker : MonoBehaviour
             kelvintext.text = "Oh, it’s the wizard’s new test subject. You probably wanna escape, huh? \n\nListen, that wizard refused me my raise AND moved me to the basement. For all I care, he can eat a bag of dicks. \n\nSo tell you what. Get me his staff so I can burn it, and I’ll help you out.";
             objid = -1;
         }
+       if (objid == 16)
+        {
+            SceneManager.LoadScene(4);
+            objid = -1;
+        }
+        if (objid == 20)
+        {
+            SceneManager.LoadScene(5);
+            objid = -1;
+        }
     }
     //////////////////////////////////
 

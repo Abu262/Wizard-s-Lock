@@ -19,9 +19,7 @@ public class CharacterMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0)){
-            Debug.Log("has hit");
             CheckClick();
-            Debug.Log(movedTo);
             moving = true;
             
         }
@@ -40,7 +38,6 @@ public class CharacterMovement : MonoBehaviour
         //if they are moving, transform into where they wanted to move
         if (hitten){
             if (hitten.tag == "Background"){
-                
                 this.transform.position = Vector3.MoveTowards(this.transform.position, movedTo, speed * Time.deltaTime);
             }
         }
@@ -52,7 +49,6 @@ public class CharacterMovement : MonoBehaviour
         movedTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         movedTo.z = transform.position.z;
         hitten = OutOfBound();
-         Debug.Log(hitten.name);
     }
 
     GameObject OutOfBound()

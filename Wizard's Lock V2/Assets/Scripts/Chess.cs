@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chess : MonoBehaviour
 {
@@ -71,10 +72,10 @@ public class Chess : MonoBehaviour
             selectedObject.transform.position = hit.transform.position;
             if (CheckWin())
             {
-                Debug.Log("You Won");
+                
                 selectedObject.transform.position = winningPosition;
                 selectedObject = null;
-                chessBoard.SetActive(false);
+                SceneManager.LoadScene(3);
             }
             else
             {
