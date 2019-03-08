@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ObjectClicker : MonoBehaviour
 {
+    
     public GameObject addtoInventory, interactWithItem, lookAtItem;
     public Button adder, interacter, looker;
     public static GameObject selectedItem;
@@ -23,6 +24,7 @@ public class ObjectClicker : MonoBehaviour
     public GameObject wallsafe;
     ////////
 
+
     void Start()
     {
         Safe = Safe.GetComponent<InputField>();
@@ -31,7 +33,6 @@ public class ObjectClicker : MonoBehaviour
         Button addbtn = adder.GetComponent<Button>(); //add
         Button lookbtn = looker.GetComponent<Button>(); //look
         Button interactbtn = interacter.GetComponent<Button>(); //interact
-
         // give the buttons a function when they are clicked, functions at the bottom
         addbtn.onClick.AddListener(addtask);   // activating the add button
         lookbtn.onClick.AddListener(looktask);  // activating the look button
@@ -296,7 +297,8 @@ public class ObjectClicker : MonoBehaviour
         if (objid == 22)
         {
             kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
-            kelvintext.text = "\n\n\n\n\n\n\n        AY! Hand's off kid!";            objid = -1;
+            kelvintext.text = "\n\n\n\n\n\n\n        AY! Hand's off kid!";
+            objid = -1;
         }
 
     }
@@ -429,8 +431,10 @@ public class ObjectClicker : MonoBehaviour
         }
        if (objid == 22)
         {
+            Debug.Log("fire");
             kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
-            kelvintext.text = "Oh, it’s the wizard’s new test subject. You probably wanna escape, huh? \n\nListen, that wizard refused me my raise AND moved me to the basement. For all I care, he can eat a bag of dicks. \n\nSo tell you what. Get me his staff so I can burn it, and I’ll help you out.";            objid = -1;
+            kelvintext.text = "Oh, it’s the wizard’s new test subject. You probably wanna escape, huh? \n\nListen, that wizard refused me my raise AND moved me to the basement. For all I care, he can eat a bag of dicks. \n\nSo tell you what. Get me his staff so I can burn it, and I’ll help you out.";
+            objid = -1;
         }
     }
     //////////////////////////////////
