@@ -9,26 +9,29 @@ public class ObjectClicker : MonoBehaviour
     
     public GameObject addtoInventory, interactWithItem, lookAtItem;
     public Button adder, interacter, looker;
-    public static GameObject selectedItem;
+    public static GameObject selectedItem = null;
     public Vector3 pos;
     public Collider2D hitCollider;
     public Vector3 colliderPosition;
     public Text Desc;
-    public InputField Safe;
+    public InputField Safe = null;
     // my stuff
     ////////
     private Text kelvintext;
     public Inventory invscript;    // you didnt have your inventory script called
     int objid = -1;   // you had everything in the database set as id numbers so i rolled with that
     bool safeenabled = true;
-    public GameObject wallsafe;
+    public GameObject wallsafe = null;
     ////////
 
 
     void Start()
     {
-        Safe = Safe.GetComponent<InputField>();
-        Safe.enabled = false;
+        if (Safe)
+        {
+            Safe = Safe.GetComponent<InputField>();
+            Safe.enabled = false;
+        }
         // get the buttons
         Button addbtn = adder.GetComponent<Button>(); //add
         Button lookbtn = looker.GetComponent<Button>(); //look
@@ -38,7 +41,6 @@ public class ObjectClicker : MonoBehaviour
         lookbtn.onClick.AddListener(looktask);  // activating the look button
         interactbtn.onClick.AddListener(interacttask); //activating the interact button
         SetButtons(false);
-        selectedItem = null;
     }
 
     // Update is called once per frame
@@ -124,7 +126,7 @@ public class ObjectClicker : MonoBehaviour
                     selectedItem = GameObject.Find("Corkboard");
                     objid = 8; 
                 }
-                if (hitCollider.gameObject.name == "Teleporterup")
+                if (hitCollider.gameObject.name == "TeleporterUp")
                 {
                     
                     selectedItem = GameObject.Find("TeleporterUp");
@@ -303,7 +305,7 @@ public class ObjectClicker : MonoBehaviour
 
     }
     //for looking at objects
-    void looktask()
+    public void looktask()
     {
         if (objid == 2)
         {
@@ -420,12 +422,13 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 10)
         {
-
+            //Downstairs teleporter
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             objid = -1;
         }
         if (objid == 9)
         {
+            //Upstairs teleporter
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             objid = -1;
         }

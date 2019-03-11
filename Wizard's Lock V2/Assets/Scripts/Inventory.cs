@@ -21,12 +21,7 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(this.gameObject);
-
-        DontDestroyOnLoad(this.gameObject);
+        
     }
 
     void Start()
