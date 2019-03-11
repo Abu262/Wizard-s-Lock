@@ -8,12 +8,12 @@ public class ObjectClicker : MonoBehaviour
 {
     
     public GameObject addtoInventory, interactWithItem, lookAtItem;
-    public Button adder, interacter, looker;
+    public Button adder, interacter, looker = null;
     public static GameObject selectedItem = null;
     public Vector3 pos;
     public Collider2D hitCollider;
     public Vector3 colliderPosition;
-    public Text Desc;
+    public Text Desc = null;
     public InputField Safe = null;
     // my stuff
     ////////
@@ -33,14 +33,20 @@ public class ObjectClicker : MonoBehaviour
             Safe.enabled = false;
         }
         // get the buttons
-        Button addbtn = adder.GetComponent<Button>(); //add
-        Button lookbtn = looker.GetComponent<Button>(); //look
-        Button interactbtn = interacter.GetComponent<Button>(); //interact
+        //Button addbtn = adder.GetComponent<Button>(); //add
+        //Button lookbtn = looker.GetComponent<Button>(); //look
+        //Button interactbtn = interacter.GetComponent<Button>(); //interact
+        Button addbtn = GameObject.Find("Add to Inventory").GetComponent<Button>();
+        Button interactbtn = GameObject.Find("Interact").GetComponent<Button>();
+        Button lookbtn = GameObject.Find("Look At").GetComponent<Button>();
         // give the buttons a function when they are clicked, functions at the bottom
         addbtn.onClick.AddListener(addtask);   // activating the add button
         lookbtn.onClick.AddListener(looktask);  // activating the look button
         interactbtn.onClick.AddListener(interacttask); //activating the interact button
         SetButtons(false);
+
+        Desc = GameObject.Find("descText").GetComponent<Text>();
+        invscript = GameObject.Find("Inventory").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
