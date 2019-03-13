@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeColor : Inventory
+public class ChangeColor : MonoBehaviour
 {
     public GameObject Left, Middle, Right;
     Color[] colors = { Color.red, Color.blue, Color.yellow, Color.green, Color.cyan, Color.magenta, Color.grey };
+    public Inventory invscript = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,17 @@ public class ChangeColor : Inventory
         Right.GetComponent<Renderer>().material.color = Color.green;
     }
 
+    void Awake()
+    {
+        invscript = GameObject.Find("Inventory").GetComponent<Inventory>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Left.GetComponent<Renderer>().material.color == Color.yellow && Middle.GetComponent<Renderer>().material.color == Color.yellow && Right.GetComponent<Renderer>().material.color == Color.yellow)
         {
-            AddItem(4);
+            invscript.AddItem(4);
             Debug.Log("Potion Complete!");
             SceneManager.LoadScene(1);
         }

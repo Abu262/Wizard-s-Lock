@@ -15,6 +15,8 @@ public class ObjectClicker : MonoBehaviour
     public Vector3 colliderPosition;
     public Text Desc = null;
     public InputField Safe = null;
+    public bool drawerInteracted = false;
+    public bool staffInteracted = false;
     // my stuff
     ////////
     private Text kelvintext;
@@ -394,7 +396,7 @@ public class ObjectClicker : MonoBehaviour
         //alchemy
         if (objid == 20)
         {
-            Desc.text = "The wziard's alchemy table, what he brews up here would shock you.";
+            Desc.text = "The wizard's alchemy table, what he brews up here would shock you.";
         }
         //downstairstele
         if (objid == 21)
@@ -464,12 +466,15 @@ public class ObjectClicker : MonoBehaviour
                 kelvintext.text = "Oh, it’s the wizard’s new test subject. You probably wanna escape, huh? \n\nListen, that wizard refused me my raise AND moved me to the basement. For all I care, he can eat a bag of dicks. \n\nSo tell you what. Get me his staff so I can burn it, and I’ll help you out.";
             objid = -1;
         }
-       if (objid == 22 && invscript.InventoryContains(7))
+       if (objid == 19)
        {
-            invscript.useStaff();
-            kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
-            kelvintext.text = "Thanks";
-            invscript.AddItem(2);
+            Debug.Log("Drawer Interacted");
+            if (!drawerInteracted)
+            {
+                //invscript.AddItem(0);
+                invscript.AddItem(3);
+                drawerInteracted = true;
+            }
             objid = -1;
         }
        if (objid == 16)
@@ -480,6 +485,15 @@ public class ObjectClicker : MonoBehaviour
         if (objid == 20)
         {
             SceneManager.LoadScene(5);
+            objid = -1;
+        }
+        if (objid == 11)
+        {
+            if (invscript.InventoryContains(3))
+            {
+                Destroy(selectedItem);
+                invscript.AddItem(7);
+            }
             objid = -1;
         }
     }
