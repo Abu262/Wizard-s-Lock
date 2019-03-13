@@ -48,6 +48,7 @@ public class Inventory : MonoBehaviour
         {
             showInventory = !showInventory;
         }
+
     }
 
     void OnGUI()

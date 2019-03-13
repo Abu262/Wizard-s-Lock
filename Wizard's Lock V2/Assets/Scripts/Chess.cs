@@ -12,10 +12,12 @@ public class Chess : MonoBehaviour
     private Vector3 winningPosition = new Vector3(-2.9f, 4.8f, 0);
     private Vector3 originalPosition = new Vector3(0, 0, 0);
     public Inventory invscript = null;
+    public GameManager m_gameManager = null;
 
     void Awake()
     {
         invscript = GameObject.Find("Inventory").GetComponent<Inventory>();
+        m_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -82,6 +84,9 @@ public class Chess : MonoBehaviour
                 selectedObject.transform.position = winningPosition;
                 selectedObject = null;
                 invscript.AddItem(6);
+                m_gameManager.chessDone = true;
+                if (m_gameManager.pedestal)
+                    m_gameManager.pedestal.SetActive(false);
                 SceneManager.LoadScene(3);
             }
             else

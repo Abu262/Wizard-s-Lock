@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-
+    [SerializeField] public bool chessDone = false;
+    public GameObject pedestal = null;
 
     [SerializeField] TextMeshProUGUI timerText = null;
     float timeLeft = 1200f;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pedestal = GameObject.Find("Pedestal");
 
     }
 
@@ -41,7 +42,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Lose Screen");
             timeLeft = 1200f;
         }
-        
+
+        if (!pedestal)
+        {
+            pedestal = GameObject.Find("Pedestal");
+            if (chessDone)
+                pedestal.SetActive(false);
+        }
+
     }
 
     void UpdateTimer()
