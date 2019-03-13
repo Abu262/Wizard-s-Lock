@@ -11,6 +11,12 @@ public class Chess : MonoBehaviour
     [SerializeField] GameObject chessBoard = null;
     private Vector3 winningPosition = new Vector3(-2.9f, 4.8f, 0);
     private Vector3 originalPosition = new Vector3(0, 0, 0);
+    public Inventory invscript = null;
+
+    void Awake()
+    {
+        invscript = GameObject.Find("Inventory").GetComponent<Inventory>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +81,7 @@ public class Chess : MonoBehaviour
                 
                 selectedObject.transform.position = winningPosition;
                 selectedObject = null;
+                invscript.AddItem(6);
                 SceneManager.LoadScene(3);
             }
             else
