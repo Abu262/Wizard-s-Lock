@@ -40,6 +40,10 @@ public class Inventory : MonoBehaviour
         AddItem(5);
         AddItem(6);*/
         AddItem(7);
+        AddItem(2);
+        AddItem(4);
+        AddItem(5);
+        AddItem(6);
     }
 
     void Update()

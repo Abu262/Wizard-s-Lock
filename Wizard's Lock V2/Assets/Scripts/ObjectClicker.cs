@@ -17,6 +17,7 @@ public class ObjectClicker : MonoBehaviour
     public InputField Safe = null;
     public bool drawerInteracted = false;
     public bool staffInteracted = false;
+    public bool alchemyInteracted = false;
     // my stuff
     ////////
     private Text kelvintext;
@@ -262,7 +263,6 @@ public class ObjectClicker : MonoBehaviour
     //for picking up items
     void addtask()
     {
-
         //candle
         if (objid == 0)
         {
@@ -437,7 +437,12 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 14)
         {
-            Desc.text = "Oh sure, I can definitely open this door. That giant lock is just for show";
+            if(invscript.InventoryContains(2) && invscript.InventoryContains(4) && invscript.InventoryContains(5) && invscript.InventoryContains(6))
+            {
+                Debug.Log("CONGRATS");
+            }
+            else
+                Desc.text = "Oh sure, I can definitely open this door. That giant lock is just for show";
             objid = -1;
         }
         if (objid == 10)
@@ -484,7 +489,11 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 20)
         {
-            SceneManager.LoadScene(5);
+            if (alchemyInteracted == false)
+            {
+                alchemyInteracted = true;
+                SceneManager.LoadScene(5);
+            }
             objid = -1;
         }
         if (objid == 11)
