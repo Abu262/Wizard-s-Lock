@@ -25,6 +25,11 @@ public class ObjectClicker : MonoBehaviour
     ////////
 
 
+    void Awake()
+    {
+
+    }
+
     void Start()
     {
         if (Safe)
@@ -66,7 +71,7 @@ public class ObjectClicker : MonoBehaviour
                     Safe.enabled = false;
                     safeenabled = false;
                     objid = -1;
-
+                    invscript.AddItem(5);
                 }
                 else
                 {
