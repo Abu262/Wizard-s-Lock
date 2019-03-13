@@ -39,6 +39,7 @@ public class Inventory : MonoBehaviour
         AddItem(4);
         AddItem(5);
         AddItem(6);*/
+        AddItem(7);
     }
 
     void Update()
@@ -159,15 +160,27 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void useStaff()
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].itemName == "Staff")
+            {
+                inventory[i] = new Item();
+                Debug.Log("Used Staff");
+            }
+        }
+    }
+
     private void useItem(Item item, int slot, bool deleteItem)
     {
         if (deleteItem)
         {
-            inventory[slot] = new Item();
+            //inventory[slot] = new Item();
         }
     }
 
-    bool InventoryContains(int id)
+    public bool InventoryContains(int id)
     {
         bool result = false;
         for(int i = 0; i < inventory.Count; i++)

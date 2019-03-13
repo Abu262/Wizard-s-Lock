@@ -15,5 +15,6 @@ public class ItemDatabase : MonoBehaviour
         items.Add(new Item("Lightning in a Jar", 4, "Lightning in a Jar"));
         items.Add(new Item("Ring", 5, "Ring"));
         items.Add(new Item("Thor's Toothpick", 6, "Thor's Toothpick"));
+        items.Add(new Item("Staff", 7, "Staff"));
     }
 }
