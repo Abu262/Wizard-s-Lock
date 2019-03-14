@@ -1407,6 +1407,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5386907371285187724, guid: 881855e55d0f29f4eb38fc5df78ec830,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386907371285187724, guid: 881855e55d0f29f4eb38fc5df78ec830,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 881855e55d0f29f4eb38fc5df78ec830, type: 3}
 --- !u!1001 &6575680830818342478
@@ -1535,16 +1545,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7733179071608173203, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733179071608173203, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1684040401}
     - target: {fileID: 7733179071118665339, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1650,6 +1650,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7733179071608173203, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733179071608173203, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1684040401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c4b34bffbf9a0b4e8fe6b430dd9611e, type: 3}
 --- !u!1001 &8885739926340260660
