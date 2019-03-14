@@ -75,7 +75,7 @@ public class ObjectClicker : MonoBehaviour
 
                         Safe.enabled = false;
                         safeenabled = false;
-                        invscript.AddItem(5);
+                        invscript.AddItem(2);
                         objid = -1;
                     }
                     else
@@ -279,10 +279,9 @@ public class ObjectClicker : MonoBehaviour
         {
 
             invscript.AddItem(1);
-
-            Desc.text = "This diary could be useful";
             objid = -1;
-            Destroy(selectedItem);  //destroys the ember
+            Desc.text = "This diary could be useful";
+            Destroy(selectedItem);  //destroys the diary
         }
         //ember
         else if (objid == 2)
