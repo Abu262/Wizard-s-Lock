@@ -75,8 +75,8 @@ public class ObjectClicker : MonoBehaviour
 
                         Safe.enabled = false;
                         safeenabled = false;
-                        objid = -1;
                         invscript.AddItem(5);
+                        objid = -1;
                     }
                     else
                     {
