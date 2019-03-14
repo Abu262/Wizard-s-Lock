@@ -61,29 +61,32 @@ public class ObjectClicker : MonoBehaviour
     void Update()
     {
         //some safe bullshit
-        if (GameObject.Find("wallsafe") != null && Safe.image.enabled == true)
+        if (GameObject.Find("wallsafe") != null)
         {
-            if (Input.GetKeyUp("return"))
+            if (Safe.image.enabled == true)
             {
-                if (Safe.text == "99BTGIA6")
+                if (Input.GetKeyUp("return"))
                 {
-                    Desc.text = "I got it open! There's a gold ring inside... well it's mine now";
-                    Safe.image.enabled = false;
-                    Safe.text = "";
+                    if (Safe.text == "99BTGIA6")
+                    {
+                        Desc.text = "I got it open! There's a gold ring inside... well it's mine now";
+                        Safe.image.enabled = false;
+                        Safe.text = "";
 
-                    Safe.enabled = false;
-                    safeenabled = false;
-                    objid = -1;
-                    invscript.AddItem(5);
-                }
-                else
-                {
-                    Safe.text = "";
+                        Safe.enabled = false;
+                        safeenabled = false;
+                        objid = -1;
+                        invscript.AddItem(5);
+                    }
+                    else
+                    {
+                        Safe.text = "";
 
-                    Safe.enabled = false;
-                    Desc.text = "hmmm, that wasnt the code";
-                    Safe.image.enabled = false;
-                    objid = -1;
+                        Safe.enabled = false;
+                        Desc.text = "hmmm, that wasnt the code";
+                        Safe.image.enabled = false;
+                        objid = -1;
+                    }
                 }
             }
         }
@@ -106,8 +109,8 @@ public class ObjectClicker : MonoBehaviour
                 }
                 colliderPosition = hitCollider.transform.position;
                 addtoInventory.transform.position = new Vector3(pos.x, (pos.y),pos.z);
-                interactWithItem.transform.position = new Vector3(pos.x, (pos.y - 30), pos.z);
-                lookAtItem.transform.position = new Vector3(pos.x, (pos.y - 60), pos.z);
+                interactWithItem.transform.position = new Vector3((pos.x ) -50, (pos.y), pos.z);
+                lookAtItem.transform.position = new Vector3((pos.x)+ 50, pos.y, pos.z);
                 SetButtons(true);
                 if (hitCollider.gameObject.name == "Basement" || hitCollider.gameObject.name == "LivingRoom" || hitCollider.gameObject.name == "Bedroom")
                 {
@@ -274,8 +277,12 @@ public class ObjectClicker : MonoBehaviour
         //diary
         else if (objid == 1)
         {
+
             invscript.AddItem(1);
+
+            Desc.text = "This diary could be useful";
             objid = -1;
+            Destroy(selectedItem);  //destroys the ember
         }
         //ember
         else if (objid == 2)
@@ -334,7 +341,7 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 1)
         {
-            Desc.text = "the wizard's diary, he dots his I's with hearts.";
+            Desc.text = "the wizard's diary, or 'journal' as he calls it.";
         }
         if (objid == 7)
         {
@@ -358,7 +365,7 @@ public class ObjectClicker : MonoBehaviour
         }
         if (objid == 12)
         {
-            Desc.text = "A picture of the wziard's wife; he turned her into an orc, long story.";
+            Desc.text = "A picture of the wizard's wife; he turned her into an orc, long story.";
         }
         if (objid == 13)
         {
@@ -376,7 +383,7 @@ public class ObjectClicker : MonoBehaviour
         //chess
         if (objid == 16)
         {
-            Desc.text = "A recreation of the 1998's chess match: Thorin vs. Ittai, right before Thorin checkmated Ittai, I beleive Thorin played black";
+            Desc.text = "A recreation of the 1998's chess match: Thorin (black) vs. Ittai (white), right before Thorin checkmated Ittai.";
         }
         //upstairstele
         if (objid == 17)
@@ -391,7 +398,7 @@ public class ObjectClicker : MonoBehaviour
         //drawer
         if (objid == 19)
         {
-            Desc.text = "That's where the wizard keeps his undies.";
+            Desc.text = "That's where the wizard keeps his clothes.";
         }
         //alchemy
         if (objid == 20)
@@ -431,7 +438,7 @@ public class ObjectClicker : MonoBehaviour
             }
             if (safeenabled == false)
             {
-                Desc.text = "I already stole his prized possesions";
+                Desc.text = "I already stole everything inside.";
                 objid = -1;
             }
         }
@@ -459,12 +466,11 @@ public class ObjectClicker : MonoBehaviour
         }
        if (objid == 22)
         {
-            Debug.Log("fire");
             kelvintext = GameObject.Find("KelvinText").GetComponent<Text>();
             if(invscript.InventoryContains(7))
             {
                 invscript.useStaff();
-                kelvintext.text = "Thanks";
+                kelvintext.text = "Thanks, this'll teach him to lock me up. Here, take this ember, \nit should help your escape.";
                 invscript.AddItem(2);
             }
             else
@@ -473,7 +479,7 @@ public class ObjectClicker : MonoBehaviour
         }
        if (objid == 19)
        {
-            Debug.Log("Drawer Interacted");
+            Desc.text = "Lots of robes in here, but these gloves look nice.";
             if (!drawerInteracted)
             {
                 //invscript.AddItem(0);
@@ -484,6 +490,7 @@ public class ObjectClicker : MonoBehaviour
         }
        if (objid == 16)
         {
+            Desc.text = "";
             SceneManager.LoadScene(4);
             objid = -1;
         }
@@ -491,6 +498,7 @@ public class ObjectClicker : MonoBehaviour
         {
             if (alchemyInteracted == false)
             {
+                Desc.text = "I think combining three yellow potions make a lightning potion.";
                 alchemyInteracted = true;
                 SceneManager.LoadScene(5);
             }
@@ -500,6 +508,7 @@ public class ObjectClicker : MonoBehaviour
         {
             if (invscript.InventoryContains(3))
             {
+                Desc.text = "Only the wizard could grab the staff. Luckily his glove could fool the spell.";
                 Destroy(selectedItem);
                 invscript.AddItem(7);
             }

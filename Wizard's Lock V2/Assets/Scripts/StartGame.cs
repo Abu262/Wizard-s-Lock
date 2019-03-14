@@ -7,6 +7,6 @@ public class StartGame : MonoBehaviour
 {
     public void SwitchScene(  )
     {
-        SceneManager.LoadScene("AriScene");
+        SceneManager.LoadScene("Living Room");
     }
 }

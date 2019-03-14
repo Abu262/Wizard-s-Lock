@@ -32,18 +32,18 @@ public class Inventory : MonoBehaviour
             inventory.Add(new Item());
         }
         database = GameObject.FindGameObjectWithTag("Item Database").GetComponent<ItemDatabase>();
-        /*AddItem(0);
+        AddItem(0);
         AddItem(1);
         AddItem(2);
         AddItem(3);
         AddItem(4);
         AddItem(5);
-        AddItem(6);*/
-        AddItem(7);
-        AddItem(2);
-        AddItem(4);
-        AddItem(5);
         AddItem(6);
+        AddItem(7);
+        //AddItem(2);
+       // AddItem(4);
+      //  AddItem(5);
+     //   AddItem(6);
     }
 
     void Update()
@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
         {
             DrawInventory();
             if (showTooltip)
-                GUI.Box(new Rect(Event.current.mousePosition.x + 15f, Event.current.mousePosition.y, 200, 200), tooltip);
+                GUI.Box(new Rect(Event.current.mousePosition.x + 15f, Event.current.mousePosition.y, 400, 400), tooltip);
         }
         if(draggingItem)
         {

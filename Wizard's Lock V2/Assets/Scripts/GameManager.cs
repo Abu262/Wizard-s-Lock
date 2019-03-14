@@ -42,12 +42,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Lose Screen");
             timeLeft = 1200f;
         }
-
-        if (!pedestal)
+        if (pedestal != null)
         {
-            pedestal = GameObject.Find("Pedestal");
-            if (chessDone)
-                pedestal.SetActive(false);
+            if (!pedestal)
+            {
+                pedestal = GameObject.Find("Pedestal");
+                if (chessDone)
+                    pedestal.SetActive(false);
+            }
         }
 
     }
