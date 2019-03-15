@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     [SerializeField] public bool chessDone = false;
     public GameObject pedestal = null;
+    //public GameObject Safe = null;
 
     [SerializeField] TextMeshProUGUI timerText = null;
     float timeLeft = 1200f;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
-
+        //DontDestroyOnLoad(Safe);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         pedestal = GameObject.Find("Pedestal");
-
+        //Safe = GameObject.Find("SafeCode");
     }
 
     // Update is called once per frame

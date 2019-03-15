@@ -32,14 +32,14 @@ public class Inventory : MonoBehaviour
             inventory.Add(new Item());
         }
         database = GameObject.FindGameObjectWithTag("Item Database").GetComponent<ItemDatabase>();
-        AddItem(0);
+        /*AddItem(0);
         AddItem(1);
         AddItem(2);
         AddItem(3);
         AddItem(4);
         AddItem(5);
         AddItem(6);
-        AddItem(7);
+        AddItem(7);*/
         //AddItem(2);
        // AddItem(4);
       //  AddItem(5);

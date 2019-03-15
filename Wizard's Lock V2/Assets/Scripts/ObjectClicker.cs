@@ -75,7 +75,7 @@ public class ObjectClicker : MonoBehaviour
 
                         Safe.enabled = false;
                         safeenabled = false;
-                        invscript.AddItem(2);
+                        invscript.AddItem(5);
                         objid = -1;
                     }
                     else
@@ -445,7 +445,7 @@ public class ObjectClicker : MonoBehaviour
         {
             if(invscript.InventoryContains(2) && invscript.InventoryContains(4) && invscript.InventoryContains(5) && invscript.InventoryContains(6))
             {
-                Debug.Log("CONGRATS");
+                SceneManager.LoadScene("Win Screen");
             }
             else
                 Desc.text = "Oh sure, I can definitely open this door. That giant lock is just for show";

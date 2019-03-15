@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PotionsScene.unity
     guid: 23c9a4a06a5355c4195e89a098480328
+  - enabled: 1
+    path: Assets/Scenes/Win Screen.unity
+    guid: 2811981590075974ab83667ec3e0c2b4
+  - enabled: 1
+    path: Assets/Scenes/Lose Screen.unity
+    guid: 9575a484596ce4a4daeb88e228cc2a2f
   m_configObjects: {}
